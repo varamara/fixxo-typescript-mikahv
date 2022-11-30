@@ -5,11 +5,10 @@ import BreadcrumbSection from '../sections/BreadcrumbSection'
 import MapSection from '../sections/MapSection'
 import ContactFormSection from '../sections/ContactFormSection'
 
-// OBS att denna js heter contactS och inte contact
 
-const ContactsView = () => {
+const ContactsView: React.FC  = () => {
 
-  window.top.document.title = 'Contacts | Fixxo.'
+  document.title = 'Contacts | Fixxo.'
 
   return (
     <>

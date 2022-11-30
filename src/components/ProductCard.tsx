@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/ShoppingCartContext'
+import { ProductItem } from '../models/ProductModels'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const ProductCard = ({item}) => {
+interface ProductCardType {
+    item: ProductItem
+}
 
-    const addToWishList = (e) => {
-        console.log(`${e.target} added to wishlist`)
-    }
-    const addToCompare = (e) => {
-        console.log(`${e.target} added to compare`)
-    }
-    const addToCart = (e) => {
-        console.log(`${e.target} added to cart`)
-    }
+const ProductCard: React.FC<ProductCardType> = ({item}) => {
+    const { increment } = useShoppingCartContext() as ShoppingCartContextType
 
   return (
     <div className="col">
@@ -19,11 +17,11 @@ const ProductCard = ({item}) => {
             <div className="card-img">
                 <img src={item.imageName} alt={item.name} />
                 <div className="card-menu">
-                    <button onClick={addToWishList} className="menu-link"><i className="fa-regular fa-heart"></i></button>
-                    <button onClick={addToCompare}className="menu-link"><i className="fa-regular fa-code-compare"></i></button>
-                    <button onClick={addToCart}className="menu-link"><i className="fa-regular fa-bag-shopping"></i></button>
+                    <button className="menu-link"><i className="fa-regular fa-heart"></i></button>
+                    <button className="menu-link"><i className="fa-regular fa-code-compare"></i></button>
+                    <button onClick={() => increment({articleNumber: item.articleNumber, product: item, quantity: 1})}className="menu-link"><i className="fa-regular fa-bag-shopping"></i></button>
                 </div>
-                <Link to={`/products/${item.name.toLowerCase().replace(/ /gi, "-")}`} className="btn-theme btn-card-theme">
+                <Link to={`/products/${item.articleNumber}`} className="btn-theme btn-card-theme">
                     <span className="corner-left"></span>
                     <span className="corner-right"></span>
                     <p>QUICK VIEW</p>
@@ -39,7 +37,7 @@ const ProductCard = ({item}) => {
                     <i className="fa-sharp fa-solid fa-star-sharp"></i>
                     <i className="fa-sharp fa-solid fa-star-sharp"></i>
                 </p>
-                <p className="card-price">${item.price}</p>   
+                <p className="card-price">{currencyFormatter(item.price)}</p>   
             </div>
         </div>
     </div>
@@ -47,3 +45,7 @@ const ProductCard = ({item}) => {
 }
 
 export default ProductCard
+
+function useShoppingCart(): { incrementQuantity: any } {
+    throw new Error('Function not implemented.')
+}

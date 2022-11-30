@@ -3,7 +3,7 @@ import MainMenuSection from '../sections/MainMenuSection'
 import FooterSection from '../sections/FooterSection'
 import notFoundImg from '../assets/images/error-404.png'
 
-const NotFoundView = () => {
+const NotFoundView: React.FC  = () => {
   return (
     <>
     <MainMenuSection />

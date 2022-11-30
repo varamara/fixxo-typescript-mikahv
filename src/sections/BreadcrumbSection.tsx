@@ -1,7 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const BreadcrumbSection = ({currentPage}) => {
+
+interface BreadcrumbType {
+  currentPage: string
+}
+
+const BreadcrumbSection: React.FC<BreadcrumbType> = ({currentPage}) => {
   return (
     <section className="breadcrumb">
         <div className="container">

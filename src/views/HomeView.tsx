@@ -1,6 +1,4 @@
-import React, {useContext} from 'react'
-import { FeaturedProductsContext, dealsProductsContext, ProductsContext } from '../contexts/contexts'
-
+import React, {useContext, useEffect} from 'react'
 import MainMenuSection from '../sections/MainMenuSection'
 import FooterSection from '../sections/FooterSection'
 import ProductGridSection from '../sections/ProductGridSection'
@@ -10,12 +8,24 @@ import TopPicksSection from '../sections/TopPicksSection'
 import DealsSection from '../sections/DealsSection_1'
 import DealsSection_2 from '../sections/DealsSection_2'
 import SupportSection from '../sections/SupportSection'
+import { ProductContextType, useProductContext } from '../contexts/ProductContext'
+import { ProductsContext } from '../contexts/contexts'
+import { ProductItem } from '../models/ProductModels'
 
-const HomeView = () => {
+export interface HomeViewType {
+  item: ProductItem
+}
 
-  window.top.document.title = 'Fixxo.'
+const HomeView: React.FC<HomeViewType>  = ({item}) => {
 
-  const {featured, deals} = useContext(ProductsContext);
+  document.title = 'Fixxo.'
+
+  const {featuredProducts, getFeaturedProducts} = useProductContext() as ProductContextType
+
+  useEffect(() => {
+    getFeaturedProducts(8)
+  }, [])
+  
 
   return (
     <>
@@ -24,10 +34,10 @@ const HomeView = () => {
       <BreadcrumbSection currentPage="Home"/>
       <ShowcaseSection />
     </header>
-    <ProductGridSection title="Featured Products" items={featured}/>
+    <ProductGridSection title="Featured Products" items={featuredProducts}/>
     <TopPicksSection />
-    <DealsSection items={deals}/>
-    <DealsSection_2 items={deals}/>
+    <DealsSection title= {item.name} items={featuredProducts}/>
+    <DealsSection_2 title= {item.name}items={featuredProducts}/>
     <SupportSection />
     <FooterSection />
     </>

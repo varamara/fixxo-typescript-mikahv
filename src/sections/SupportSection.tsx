@@ -4,7 +4,7 @@ import credit_card from '../assets/images/credit-card.svg'
 import delivery_truck from '../assets/images/delivery-truck.svg'
 
 
-const SupportSection = () => {
+const SupportSection: React.FC  = () => {
   return (
     <section className='support_section'>
        <div className="btn-container">

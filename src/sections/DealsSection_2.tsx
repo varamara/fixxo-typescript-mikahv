@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProductCard from '../components/ProductCard'
+import { ProductContextType, useProductContext } from '../contexts/ProductContext'
+import { DealsSectionType } from './DealsSection_1'
 
-const DealsSection_2 = ({ items = []}) => {
+const DealsSection_2: React.FC<DealsSectionType>  = ({ items = []}) => {
+
+  
+    const {product, getAllProducts} = useProductContext() as ProductContextType
+    useEffect(() => {
+      getAllProducts(8)
+    }, [])
 
     return (
         <section className="deals-section-2">
@@ -9,7 +17,7 @@ const DealsSection_2 = ({ items = []}) => {
                 <div className="container">
                     <div className="row row-cols-2 row-cols-md-2 row-cols-lg-2 row-cols-2 g-2">
                     {
-                        items?.map( product => <ProductCard key={product.articleNumber} item={product} />)
+                        items.map( item => <ProductCard key={product.articleNumber} item={product}/>)
                     }
                     </div>
                 </div>

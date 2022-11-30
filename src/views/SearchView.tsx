@@ -2,7 +2,7 @@ import React from 'react'
 import MainMenuSection from '../sections/MainMenuSection'
 import FooterSection from '../sections/FooterSection'
 
-const ShoppingcartView = () => {
+const SearchView: React.FC  = () => {
   return (
     <>
     <MainMenuSection />
@@ -11,4 +11,4 @@ const ShoppingcartView = () => {
   )
 }
 
-export default ShoppingcartView
+export default SearchView

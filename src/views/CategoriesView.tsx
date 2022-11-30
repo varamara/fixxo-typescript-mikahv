@@ -4,9 +4,9 @@ import FooterSection from '../sections/FooterSection'
 import BreadcrumbSection from '../sections/BreadcrumbSection'
 
 
-const CategoriesView = () => {
+const CategoriesView: React.FC = () => {
 
-  window.top.document.title = 'Categories | Fixxo.'
+  document.title = 'Categories | Fixxo.'
 
   return (
     <>

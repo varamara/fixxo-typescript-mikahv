@@ -4,7 +4,7 @@ import img1 from '../assets/images/showcase-img-1.png';
 import img2 from '../assets/images/showcase-img-2.png';
 
 
-const ShowcaseSection = () => {
+const ShowcaseSection: React.FC  = () => {
     return (
         <section className="showcase container">
             <img src={img1} className="showcase-image-left" alt="showcase-img-1" />

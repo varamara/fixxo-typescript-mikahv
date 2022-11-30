@@ -2,7 +2,7 @@ import React from 'react'
 import img1 from '../assets/images/pamela-img.svg'
 import img2 from '../assets/images/concious-img.svg'
 
-const TopPicksSection = () => {
+const TopPicksSection: React.FC  = () => {
   return (
     <section className="top-picks">
         <div className="top-picks-left">
