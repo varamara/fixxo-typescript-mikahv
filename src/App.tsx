@@ -11,8 +11,7 @@ import CompareView from './views/CompareView';
 import WishlistView from './views/WishlistView';
 import ShoppingcartView from './views/ShoppingcartView';
 import NotFoundView from './views/NotFoundView';
-import ProductProvider from './contexts/ProductContext';
-import { ProductsContext } from './contexts/contexts';
+import ProductProvider, { ProductContext } from './contexts/ProductContext';
 
 function App() {
 
@@ -20,7 +19,7 @@ function App() {
     <BrowserRouter>
       <ProductProvider>
         
-      <ProductsContext.Provider value={{}}>
+      <ProductContext.Provider value={{}}>
         <Routes>
           <Route path="/" element={<HomeView item={()}/>} />
           <Route path="/categories" element={<CategoriesView />} />
@@ -33,7 +32,7 @@ function App() {
           <Route path="/shoppingcart" element={<ShoppingcartView />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
-      </ProductsContext.Provider>
+      </ProductContext.Provider>
     </ProductProvider>
   </BrowserRouter>
   );
