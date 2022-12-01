@@ -36,6 +36,8 @@ const ContactForm: React.FC  = () => {
 
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const  {id, value} = e.target
+    setFormData({...formData, [id]: value})
+
 
     if (id === 'comments')
       setErrors({...errors, [id]: validateText(id, value, 5)})
@@ -50,6 +52,8 @@ const ContactForm: React.FC  = () => {
 // Om fälten inte är tomma betyder följande !=='' så händer detta osv
     if (formData.name !== '' && formData.email !== '' && formData.comments !== '')
       if (errors.name === '' && errors.email === '' && errors.comments === '') {
+
+        // Denna url kommer också vara connected med din egen api
 
         const res = await fetch('https://win22-webapi.azurewebsites.net/api/contactform', {
           method: 'post',

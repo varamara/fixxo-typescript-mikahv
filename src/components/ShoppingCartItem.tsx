@@ -3,7 +3,7 @@ import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/Sho
 import { CartItem } from '../models/ShoppingCartModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-interface ShoppingCartItemType {
+export interface ShoppingCartItemType {
     item: CartItem
 }
 

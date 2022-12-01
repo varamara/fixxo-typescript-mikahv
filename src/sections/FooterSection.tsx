@@ -1,5 +1,5 @@
 import React from 'react'
-import ExternalLinkIcon from '../components/ExternalLinkIcon'
+import ExternalLinkIcon from '../components/ExternalIconLink'
 
 const FooterSection: React.FC  = () => {
   return (

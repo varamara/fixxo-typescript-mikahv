@@ -8,7 +8,7 @@ const DealsSection_2: React.FC<DealsSectionType>  = ({ items = []}) => {
   
     const {product, getAllProducts} = useProductContext() as ProductContextType
     useEffect(() => {
-      getAllProducts(8)
+      getAllProducts(4)
     }, [])
 
     return (

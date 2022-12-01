@@ -4,6 +4,7 @@ import { CartItem } from '../models/ShoppingCartModels';
 
 interface ShoppingCartProviderType {
   children: any
+  items: CartItem[]
 }
 
 export interface ShoppingCartContextType {
@@ -18,7 +19,7 @@ export const ShoppingCartContext = createContext<ShoppingCartContextType | null>
 export const useShoppingCartContext = () => { return useContext(ShoppingCartContext) }
 
 
-export const ShoppingCartProvider: React.FC<ShoppingCartProviderType> = ({children}) => {
+export const ShoppingCartProvider: React.FC<ShoppingCartProviderType> = ({children, items}) => {
   const [Items, setItems] = useState<CartItem[]>([])
   const totalQuantity = Items.reduce((quantity, item) => item.quantity + quantity, 0)
 
@@ -61,11 +62,10 @@ export const ShoppingCartProvider: React.FC<ShoppingCartProviderType> = ({childr
   const remove = (articleNumber: string) => {
     setItems(items => {return items.filter(item => item.articleNumber !== articleNumber)})
   }
-
-
-  return <ShoppingCartContext.Provider> value={{ items, totalQuantity, increment, remove}}
-    {children}
-    <ShoppingCart />
-  <ShoppingCartContext.Provider>
-
+  
+  return <ShoppingCartContext.Provider value = {{ items, totalQuantity, increment, decrement, remove }}>
+    
+      {children}
+    <ShoppingCart /> 
+  </ShoppingCartContext.Provider>
 }

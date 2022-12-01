@@ -9,13 +9,17 @@ export interface ProductContextType {
     product: ProductItem
     allProducts: ProductItem[]
     featuredProducts: ProductItem[]
+    dealsProducts: ProductItem[]
     getProduct: (articleNumber?: string) => void
     getAllProducts: (take?: number) => void
     getFeaturedProducts: (take?: number) => void
+    getDealsProducts: (take?: number) => void
 }
 
 export const ProductContext = createContext<ProductContextType | null>(null)
 export const useProductContext = () => { return useContext(ProductContext)}
+
+// Den nuvarande urlen kommer vara till din api sedan
 
     const ProductProvider: React.FC<ProductProviderType> = ({children}) => {
     const baseUrl:string = 'https://win22-webapi.azurewebsites.net/api/products'
@@ -24,6 +28,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
     const [product, setProduct] = useState<ProductItem>(EMPTY_PRODUCT)
     const [allProducts, setAllProducts] = useState<ProductItem[]>([])
     const [featuredProducts, setFeaturedProducts] = useState<ProductItem[]>([])
+    const [dealsProducts, setDealsProducts] = useState<ProductItem[]>([])
     
 
     const getProduct = async (articleNumber?: string) => {
@@ -51,9 +56,18 @@ export const useProductContext = () => { return useContext(ProductContext)}
         const res = await fetch(url)
         setFeaturedProducts(await res.json())
     }
+    const getDealsProducts = async (take: number = 0) => {
+        let url = baseUrl + `?tag=dealsProducts`
+
+        if (take !== 0)
+            url += baseUrl + `?tag=dealsProducts&take${take}`
+
+        const res = await fetch(url)
+        setDealsProducts(await res.json())
+    }
 
 
-    return <ProductContext.Provider value={{product, allProducts, featuredProducts, getProduct, getAllProducts, getFeaturedProducts }}>
+    return <ProductContext.Provider value={{product, allProducts, featuredProducts, dealsProducts, getProduct, getAllProducts, getFeaturedProducts, getDealsProducts }}>
         {children}
     </ProductContext.Provider>
 
