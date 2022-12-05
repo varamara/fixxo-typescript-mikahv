@@ -3,13 +3,8 @@ import ProductCard from '../components/ProductCard'
 import { ProductContextType, useProductContext } from '../contexts/ProductContext'
 import { DealsSectionType } from './DealsSection_1'
 
-const DealsSection_2: React.FC<DealsSectionType>  = ({ items = []}) => {
+const DealsSection_2: React.FC<DealsSectionType>  = ({ title, items = []}) => {
 
-  
-    const {product, getAllProducts} = useProductContext() as ProductContextType
-    useEffect(() => {
-      getAllProducts(4)
-    }, [])
 
     return (
         <section className="deals-section-2">
@@ -17,7 +12,7 @@ const DealsSection_2: React.FC<DealsSectionType>  = ({ items = []}) => {
                 <div className="container">
                     <div className="row row-cols-2 row-cols-md-2 row-cols-lg-2 row-cols-2 g-2">
                     {
-                        items.map( item => <ProductCard key={product.articleNumber} item={product}/>)
+                        items.map( product => <ProductCard key={product.articleNumber} item={product} />)
                     }
                     </div>
                 </div>
@@ -25,7 +20,7 @@ const DealsSection_2: React.FC<DealsSectionType>  = ({ items = []}) => {
 
             <div className="flash-sale">
                 <div className="flash-info">
-                    <h1>2 FOR USD $29</h1>
+                    <h1>{title}</h1>
                     <button className="btn-light">
                         <div className="corner-left"></div>
                             FLASH SALE

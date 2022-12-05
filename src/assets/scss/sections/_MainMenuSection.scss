@@ -1,5 +1,5 @@
 .mainmenu {
-    width: 390px;
+    width: 1600px;
     display: grid;
     padding-top: 10px;
     grid-template-columns: 1fr 1fr;
@@ -45,6 +45,7 @@
         align-items: center;
 
         .menu-icon {
+            border: none;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -160,14 +161,13 @@
             }
     
             .active {
-                color: $color-white;
-                background-color: $color-dark-1;
+                color: $color-theme;
                 text-decoration: none;
                 box-shadow: 0 0 6px 4x $color-shadow;
             }
     
             span {
-                margin-left: 50px;
+                margin-left: 25px;
                 margin-bottom: 10px;
             }
 

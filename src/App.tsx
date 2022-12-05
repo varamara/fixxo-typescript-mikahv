@@ -11,17 +11,20 @@ import CompareView from './views/CompareView';
 import WishlistView from './views/WishlistView';
 import ShoppingcartView from './views/ShoppingcartView';
 import NotFoundView from './views/NotFoundView';
-import ProductProvider, { ProductContext } from './contexts/ProductContext';
+import ProductProvider from './contexts/ProductContext';
+import initFontAwesome from './utilities/initFontAwesome';
+import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
+
+initFontAwesome();
 
 function App() {
 
   return (
     <BrowserRouter>
       <ProductProvider>
-        
-      <ProductContext.Provider value={{}}>
+        <ShoppingCartProvider>
         <Routes>
-          <Route path="/" element={<HomeView item={()}/>} />
+          <Route path="/" element={<HomeView/>} />
           <Route path="/categories" element={<CategoriesView />} />
           <Route path="/products" element={<ProductsView />} />
           <Route path="/products/:name" element={<ProductDetailsView />} />
@@ -32,7 +35,7 @@ function App() {
           <Route path="/shoppingcart" element={<ShoppingcartView />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
-      </ProductContext.Provider>
+        </ShoppingCartProvider>
     </ProductProvider>
   </BrowserRouter>
   );

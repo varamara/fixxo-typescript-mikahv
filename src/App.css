@@ -156,7 +156,7 @@ a:hover {
 }
 
 .mainmenu {
-  width: 390px;
+  width: 1600px;
   display: grid;
   padding-top: 10px;
   grid-template-columns: 1fr 1fr;
@@ -196,6 +196,7 @@ a:hover {
   align-items: center;
 }
 .mainmenu .menu-icons .menu-icon {
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -290,13 +291,12 @@ a:hover {
     box-shadow: 0 0 6px 4x rgba(0, 0, 0, 0.06);
   }
   .mainmenu .menu-icons .active {
-    color: #ffffff;
-    background-color: #313438;
+    color: #ff7373;
     text-decoration: none;
     box-shadow: 0 0 6px 4x rgba(0, 0, 0, 0.06);
   }
   .mainmenu .menu-icons span {
-    margin-left: 50px;
+    margin-left: 25px;
     margin-bottom: 10px;
   }
   .mainmenu .menu-icons .btn-menu-icon {

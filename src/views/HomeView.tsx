@@ -9,15 +9,9 @@ import DealsSection from '../sections/DealsSection_1'
 import DealsSection_2 from '../sections/DealsSection_2'
 import SupportSection from '../sections/SupportSection'
 import { ProductContextType, useProductContext } from '../contexts/ProductContext'
-import { ProductItem } from '../models/ProductModels'
-import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/ShoppingCartContext'
-import { ShoppingCartItemType } from '../components/ShoppingCartItem'
 
-interface HomeViewType {
-  item: ProductItem
-}
 
-const HomeView: React.FC<HomeViewType> = ({item}) => {
+const HomeView: React.FC = () => {
   
   document.title = 'Fixxo.'
   const {featuredProducts, getFeaturedProducts, dealsProducts, getDealsProducts} = useProductContext() as ProductContextType
@@ -25,8 +19,6 @@ const HomeView: React.FC<HomeViewType> = ({item}) => {
  
   useEffect(() => {
     getFeaturedProducts(8)
-  }, [])
-  useEffect(() => {
     getDealsProducts(4)
   }, [])
   
@@ -38,10 +30,10 @@ const HomeView: React.FC<HomeViewType> = ({item}) => {
       <BreadcrumbSection currentPage="Home"/>
       <ShowcaseSection />
     </header>
-    <ProductGridSection title="Featured Products" items={featuredProducts}/>
+    <ProductGridSection title="Featured Products" items={featuredProducts} />
     <TopPicksSection />
-    <DealsSection title= {item.name} items={dealsProducts}/>
-    <DealsSection_2 title= {item.name} items={dealsProducts}/>
+    <DealsSection title= "Special Deals" items={dealsProducts}/>
+    <DealsSection_2 title= "Special Deals" items={dealsProducts}/>
     <SupportSection />
     <FooterSection />
     </>

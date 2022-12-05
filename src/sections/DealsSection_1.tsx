@@ -8,13 +8,7 @@ export interface DealsSectionType {
   items: ProductItem[]
 }
 
-const DealsSection: React.FC<DealsSectionType>  = ({ title, items = []}) => {
-
-  
-  const {product, getAllProducts} = useProductContext() as ProductContextType
-  useEffect(() => {
-    getAllProducts(4)
-  }, [])
+const DealsSection: React.FC<DealsSectionType>  = ({ title, items}) => {
 
   return (
     <section className="deals-section-1">
@@ -33,7 +27,7 @@ const DealsSection: React.FC<DealsSectionType>  = ({ title, items = []}) => {
         <div className="container">
           <div className="row row-cols-2 row-cols-md-2 row-cols-lg-2 row-cols-2 g-2">
             {
-              items.map( item => <ProductCard key={product.articleNumber} item={product} />)
+              items.map( product => <ProductCard key={product.articleNumber} item={product} />)
             }
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/ShoppingCartContext'
 
@@ -7,18 +7,22 @@ interface MenuIconType {
   hideOnTablet?: boolean
   link: string
   icon?: string
-  button: () => void
   quantity?: number
+  hasBadge?: boolean
+  button: undefined
+}
+export interface ButtonHTMLAttributes<T> extends HTMLAttributes<T> {
+  type: "button"
 }
 
-const MenuIcon: React.FC<MenuIconType> = ({hideOnMobile, hideOnTablet, link, icon, button }) => {
+export const MenuIcon: React.FC<MenuIconType> = ({hideOnMobile, hideOnTablet, link, icon, hasBadge }) => {
   const { totalQuantity } = useShoppingCartContext() as ShoppingCartContextType
 
   return (
-    <button type={button} className={`menu-icon ${hideOnMobile ? "d-none d-md-flex" : ""} ${hideOnTablet ? "d-none d-md-flex" : ""}`}>
-      <NavLink className="menu-icon" to={link} end>
+    <button type="button" className={`menu-icon ${hideOnMobile ? "" : ""} ${hideOnTablet ? "d-none d-md-flex" : ""}`}>
+      <NavLink to={link} end>
         {
-          <span className="position-absolute top-10 translate-middle badge rounded-pill bg-theme">{totalQuantity}</span>
+          hasBadge && <span className="position-absolute top-10 translate-middle badge rounded-pill bg-theme">{totalQuantity}</span>
         }
         <i className={icon}></i>
       </NavLink>
