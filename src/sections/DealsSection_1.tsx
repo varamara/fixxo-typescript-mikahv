@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import ProductCard from '../components/ProductCard'
-import { ProductContextType, useProductContext } from '../contexts/ProductContext'
 import { ProductItem } from '../models/ProductModels'
 
 export interface DealsSectionType {
