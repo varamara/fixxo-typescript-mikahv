@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import MainMenuSection from '../sections/MainMenuSection'
 import FooterSection from '../sections/FooterSection'
 import ProductGridSection from '../sections/ProductGridSection'

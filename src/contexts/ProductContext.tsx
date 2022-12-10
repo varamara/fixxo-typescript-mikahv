@@ -20,6 +20,7 @@ export interface ProductContextType {
 
 export const ProductContext = createContext<ProductContextType | null>(null)
 export const useProductContext = () => { return useContext(ProductContext)}
+  
 
     const ProductProvider: React.FC<ProductProviderType> = ({children}) => {
     const baseUrl:string = 'http://localhost:5000/api/products'
@@ -35,7 +36,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
 // Hämtar ett specifikt artikelnummer
     const getProduct = async (articleNumber?: string) => {
         if (articleNumber !== undefined) {
-            const res = await fetch(`${baseUrl}/details/${articleNumber}`)
+            const res = await fetch(`${baseUrl}/product/details/${articleNumber}`)
             setProduct(await res.json())
         }
     }
@@ -73,7 +74,6 @@ export const useProductContext = () => { return useContext(ProductContext)}
         const res = await fetch(url)
         setDealsProducts_2(await res.json())
     }
-
 
     return <ProductContext.Provider value={{product, allProducts, featuredProducts, dealsProducts_1, dealsProducts_2, getProduct, getAllProducts, getFeaturedProducts, getDealsProducts_1, getDealsProducts_2 }}>
         {children}

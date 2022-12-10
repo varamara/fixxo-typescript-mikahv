@@ -1,18 +1,18 @@
-.showcase {
+.showcase_container {
+    width: 1650px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 100px;
+    margin-left: 130px;
     padding: 0;
 
     .showcase-image-left {
-        margin-left: 0px;
         display: none;
         max-height: 700px;
     }
 
     .showcase-image-right {
-        margin-right: -0px;
         display: none;
         max-height: 700px;
     }
@@ -39,14 +39,14 @@
             
             .corner-right {
                 margin-left: -65px;
-                margin-top: 10px;
+                margin-top: 15px;
             }
         }
     }
 }
 
 @media (min-width: 1600px) {
-    .showcase {   
+    .showcase_container {   
         margin-top: 0px;
 
         .showcase-image-left { display: block; }

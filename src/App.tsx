@@ -1,6 +1,5 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-
 import HomeView from './views/HomeView';
 import CategoriesView from './views/CategoriesView';
 import ProductsView from './views/ProductsView';
@@ -15,7 +14,7 @@ import ProductProvider from './contexts/ProductContext';
 import initFontAwesome from './utilities/initFontAwesome';
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 
-initFontAwesome();
+
 
 function App() {
 
@@ -40,5 +39,7 @@ function App() {
   </BrowserRouter>
   );
 }
+
+initFontAwesome();
 
 export default App;

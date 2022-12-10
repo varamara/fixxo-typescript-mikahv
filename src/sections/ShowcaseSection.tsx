@@ -6,7 +6,7 @@ import img2 from '../assets/images/showcase-img-2.png';
 
 const ShowcaseSection: React.FC  = () => {
     return (
-        <section className="showcase container">
+        <section className="showcase_container">
             <img src={img1} className="showcase-image-left" alt="showcase-img-1" />
             <div className="showcase-body">
                 <h1>SALE UP</h1>

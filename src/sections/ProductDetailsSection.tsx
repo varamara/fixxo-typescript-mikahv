@@ -1,21 +1,22 @@
 import React from 'react'
+import ProductCard from '../components/ProductCard'
 import { ProductItem } from '../models/ProductModels'
 
 interface ProductDetailsType {
-  item: ProductItem
+  title: string
+  items: ProductItem[]
 }
 
-const itemDetailsSection: React.FC<ProductDetailsType>  = ({item}) => {
+const itemDetailsSection: React.FC<ProductDetailsType>  = ({items}) => {
   return (
-    <div>
-      <h1>{item.name}</h1>
-      <p>${item.price}</p>
-      <img src={item.imageName} />
+    <div className="details-section">
+      <div className="row row-cols-1 row-cols-md-4 g-4">
+          {/* {
+            items.map( product => <ProductCard key={product.articleNumber} item={product} />)
+          } */}
+        </div>
     </div>
   )
 }
 
 export default itemDetailsSection
-
-// en fil ska vara tsx om den har ett grafiskt element, ett som syns utåt.
-// Så det blir basically ProductItem > ProductDetailsType som deklarerar ProductItem i item > item.name

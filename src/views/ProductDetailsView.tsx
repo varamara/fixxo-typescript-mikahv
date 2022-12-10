@@ -4,20 +4,22 @@ import FooterSection from '../sections/FooterSection'
 import ProductDetailsSection from '../sections/ProductDetailsSection'
 import { useParams } from 'react-router-dom'
 import { ProductContextType, useProductContext } from '../contexts/ProductContext'
+import { ProductItem } from '../models/ProductModels'
+
 
 const ProductDetailsView: React.FC  = () => {
     const {id} = useParams<string>()
-    const ProductContext = useProductContext() as ProductContextType
+    const {product, getProduct} = useProductContext() as ProductContextType
 
     useEffect(() => {
-      ProductContext.getProduct(id)
+      getProduct(id)
     }, [])
 
   return (
     <>
     <MainMenuSection />
     {/* <BreadcrumbSection parentPage="Products" currentPage={ProductContext.product.name}/> */}
-    <ProductDetailsSection item={ProductContext.product}/>
+    {/* <ProductDetailsSection title= "Product title" item={product}/> */}
     <FooterSection />
     </>
   )

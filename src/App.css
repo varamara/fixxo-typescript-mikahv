@@ -156,11 +156,17 @@ a:hover {
 }
 
 .mainmenu {
-  width: 1600px;
+  width: 1920px;
   display: grid;
   padding-top: 10px;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "logo menuicons" "menulinks menulinks";
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: -3.3rem;
+  height: 100px;
+  width: 1920px;
 }
 .mainmenu .logo {
   grid-area: logo;
@@ -242,11 +248,11 @@ a:hover {
 @media (min-width: 1600px) {
   .mainmenu {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    margin-left: -3.3rem;
+    margin-left: 1rem;
     height: 100px;
-    width: 1920px;
+    width: 1800px;
   }
   .mainmenu .logo {
     font-size: 1.875rem;
@@ -523,61 +529,61 @@ footer .socialmedia a:hover {
     margin-top: -2.5rem;
   }
 }
-.showcase {
+.showcase_container {
+  width: 1650px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 100px;
+  margin-left: 130px;
   padding: 0;
 }
-.showcase .showcase-image-left {
-  margin-left: 0px;
+.showcase_container .showcase-image-left {
   display: none;
   max-height: 700px;
 }
-.showcase .showcase-image-right {
-  margin-right: 0px;
+.showcase_container .showcase-image-right {
   display: none;
   max-height: 700px;
 }
-.showcase .showcase-body {
+.showcase_container .showcase-body {
   margin-top: 30px;
   padding-bottom: 60px;
   text-align: center;
   width: 100%;
 }
-.showcase .showcase-body h1 {
+.showcase_container .showcase-body h1 {
   font-size: 2.8125rem;
   font-weight: 800;
   margin-bottom: -10px;
 }
-.showcase .showcase-body p {
+.showcase_container .showcase-body p {
   margin-top: 50px;
   margin-bottom: 60px;
   font-size: 1.25rem;
 }
-.showcase .showcase-body .btn-theme .corner-right {
+.showcase_container .showcase-body .btn-theme .corner-right {
   margin-left: -65px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 @media (min-width: 1600px) {
-  .showcase {
+  .showcase_container {
     margin-top: 0px;
   }
-  .showcase .showcase-image-left {
+  .showcase_container .showcase-image-left {
     display: block;
   }
-  .showcase .showcase-image-right {
+  .showcase_container .showcase-image-right {
     display: block;
   }
-  .showcase .showcase-body {
+  .showcase_container .showcase-body {
     padding-bottom: 0px;
   }
-  .showcase .showcase-body h1 {
+  .showcase_container .showcase-body h1 {
     font-size: 4.0625rem;
   }
-  .showcase .showcase-body p {
+  .showcase_container .showcase-body p {
     font-size: 1.25rem;
   }
 }
@@ -639,7 +645,7 @@ footer .socialmedia a:hover {
 
 .deals-section-1 {
   display: flex;
-  margin-top: 6rem;
+  margin-top: 50px;
   height: 664px;
 }
 .deals-section-1 .flash-sale {
@@ -647,10 +653,10 @@ footer .socialmedia a:hover {
   justify-content: center;
   align-items: center;
   background-color: #bbbbbb;
-  margin-left: 7.4rem;
-  margin-right: 2rem;
+  margin-left: 115px;
+  margin-right: 32px;
   height: 680px;
-  width: 820px;
+  width: 825px;
 }
 .deals-section-1 .flash-sale .flash-info {
   margin-bottom: 50px;
@@ -751,7 +757,7 @@ footer .socialmedia a:hover {
 
 .deals-section-2 {
   display: flex;
-  margin-top: 100px;
+  margin-top: 70px;
   margin-bottom: 100px;
   height: 664px;
 }
@@ -762,7 +768,7 @@ footer .socialmedia a:hover {
   background-color: #bbbbbb;
   margin-left: -20px;
   height: 680px;
-  width: 820px;
+  width: 825px;
 }
 .deals-section-2 .flash-sale .flash-info {
   margin-bottom: 50px;
