@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import initFontAwesome from '../utilities/initFontAwesome'
 import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/ShoppingCartContext'
 import { MenuIcon } from '../components/MenuIcon';
 
-initFontAwesome();
+
 
 const MainMenuSection: React.FC  = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false)    
   const { totalQuantity } = useShoppingCartContext() as ShoppingCartContextType
-
-  // varför är totalQuantity null när jag trodde jag importerat contexten den finns i.
 
   const toggleMenu = () => {
     setShowMenu(!showMenu)
@@ -29,14 +26,15 @@ const MainMenuSection: React.FC  = () => {
       </div>
       
       <div className="menu-icons">
-        <MenuIcon link="/search" button = {undefined} icon="fa-regular fa-magnifying-glass" />
-        <MenuIcon hideOnMobile ={true}  button = {undefined} link="/compare" icon="fa-regular fa-code-compare" />
-        <MenuIcon hideOnMobile ={true} hasBadge = {true}  button = {undefined}  quantity={totalQuantity} link="/wishlist" icon="fa-regular fa-heart" />
-        <MenuIcon hasBadge = {true}  button = {undefined}  quantity={totalQuantity} link="/shoppingcart" icon="fa-regular fa-bag-shopping " />
+        <MenuIcon link="/search" button = {undefined} icon="fa-regular fa-magnifying-glass"/>
+        <MenuIcon link="/compare" button = {undefined} icon="fa-regular fa-code-compare" hideOnMobile ={true}/>
+        <MenuIcon link="/wishlist" button = {undefined} icon="fa-regular fa-heart" hasBadge = {true} quantity={totalQuantity}  hideOnMobile ={true}/>
+        <MenuIcon link="/shoppingcart" button = {undefined} icon="fa-regular fa-bag-shopping" hasBadge = {true} quantity={totalQuantity}/>
         <button onClick={toggleMenu} className="menu-icon btn-menu-icon"><i className="fa-regular fa-bars"></i></button>
       </div>
     </nav>
   )
 }
 
+initFontAwesome();
 export default MainMenuSection

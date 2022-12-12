@@ -20,7 +20,7 @@ export const MenuIcon: React.FC<MenuIconType> = ({hideOnMobile, hideOnTablet, li
 
   return (
     <button type="button" className={`menu-icon ${hideOnMobile ? "" : ""} ${hideOnTablet ? "d-none d-md-flex" : ""}`}>
-      <NavLink to={link} end>
+      <NavLink to={link} aria-label= "main_menu_button" end>
         {
           hasBadge && <span className="position-absolute top-10 translate-middle badge rounded-pill bg-theme">{totalQuantity}</span>
         }
