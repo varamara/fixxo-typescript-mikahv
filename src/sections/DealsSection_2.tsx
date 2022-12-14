@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ProductCard from '../components/ProductCard'
-import { ProductContextType, useProductContext } from '../contexts/ProductContext'
 import { DealsSectionType } from './DealsSection_1'
 
 const DealsSection_2: React.FC<DealsSectionType>  = ({ title, items = []}) => {

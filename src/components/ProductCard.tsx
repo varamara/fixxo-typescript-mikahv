@@ -17,9 +17,18 @@ const ProductCard: React.FC<ProductCardType> = ({item}) => {
             <div className="card-img">
                 <img src={item.imageName} alt={item.name} />
                 <div className="card-menu">
-                    <button className="menu-link"><i className="fa-regular fa-heart"></i></button>
+                    {/* Denna borde egentligen visa en separat offCanvas från den som ShoppingBag visar */}
+                    <button onClick={() => 
+                        increment({articleNumber: item.articleNumber, product: item, quantity: 1})} 
+                        className="menu-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <i className="fa-regular fa-heart"></i>
+                    </button>
                     <button className="menu-link"><i className="fa-regular fa-code-compare"></i></button>
-                    <button onClick={() => increment({articleNumber: item.articleNumber, product: item, quantity: 1})}className="menu-link"><i className="fa-regular fa-bag-shopping"></i></button>
+                    <button onClick={() => 
+                        increment({articleNumber: item.articleNumber, product: item, quantity: 1})} 
+                        className="menu-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <i className="fa-regular fa-bag-shopping"></i>
+                    </button>
                 </div>
                 <Link to={`/products/${item.articleNumber}`} className="btn-theme btn-card-theme">
                     <span className="corner-left"></span>

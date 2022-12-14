@@ -200,6 +200,7 @@ a:hover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: none;
 }
 .mainmenu .menu-icons .menu-icon {
   border: none;
@@ -224,11 +225,8 @@ a:hover {
   display: none;
 }
 .mainmenu .menu-icons .active {
-  color: #ff7373;
+  color: white;
   text-decoration: none;
-}
-.mainmenu .menu-icons .btn-menu-icon {
-  border: none;
 }
 
 @media (min-width: 800px) {
@@ -302,7 +300,6 @@ a:hover {
     box-shadow: 0 0 6px 4x rgba(0, 0, 0, 0.06);
   }
   .mainmenu .menu-icons span {
-    margin-left: 25px;
     margin-bottom: 10px;
   }
   .mainmenu .menu-icons .btn-menu-icon {

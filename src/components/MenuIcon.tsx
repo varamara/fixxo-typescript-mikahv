@@ -19,8 +19,8 @@ export const MenuIcon: React.FC<MenuIconType> = ({hideOnMobile, hideOnTablet, li
   const { totalQuantity } = useShoppingCartContext() as ShoppingCartContextType
 
   return (
-    <button type="button" className={`menu-icon ${hideOnMobile ? "" : ""} ${hideOnTablet ? "d-none d-md-flex" : ""}`}>
-      <NavLink to={link} aria-label= "main_menu_button" end>
+    <button type="button" className={`border-0 p-0 bg-transparent ${hideOnMobile ? "" : ""} ${hideOnTablet ? "d-none d-md-flex" : ""}`}>
+      <NavLink className= "menu-icon" to={link} aria-label= "main_menu_button" end>
         {
           hasBadge && <span className="position-absolute top-10 translate-middle badge rounded-pill bg-theme">{totalQuantity}</span>
         }

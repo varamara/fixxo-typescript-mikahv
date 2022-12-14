@@ -10,9 +10,10 @@ const ProductsView: React.FC  = () => {
   document.title = 'Products | Fixxo.'
 
   const {allProducts, getAllProducts} = useProductContext() as ProductContextType
-  useEffect(() => {
-    getAllProducts()
-  }, [])
+    
+    useEffect(() => {
+      getAllProducts()
+    }, [])
 
   return (
     <>

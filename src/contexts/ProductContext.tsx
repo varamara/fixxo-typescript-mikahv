@@ -36,7 +36,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
 // Hämtar ett specifikt artikelnummer
     const getProduct = async (articleNumber?: string) => {
         if (articleNumber !== undefined) {
-            const res = await fetch(`${baseUrl}/product/details/${articleNumber}`)
+            const res = await fetch(`${baseUrl}/products/${articleNumber}`)
             setProduct(await res.json())
         }
     }
