@@ -15,7 +15,6 @@ import initFontAwesome from './utilities/initFontAwesome';
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 
 
-
 function App() {
 
   return (

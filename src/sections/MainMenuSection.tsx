@@ -4,8 +4,6 @@ import initFontAwesome from '../utilities/initFontAwesome'
 import { ShoppingCartContextType, useShoppingCartContext } from '../contexts/ShoppingCartContext'
 import { MenuIcon } from '../components/MenuIcon';
 
-
-
 const MainMenuSection: React.FC  = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false)    
   const { totalQuantity } = useShoppingCartContext() as ShoppingCartContextType
@@ -13,7 +11,6 @@ const MainMenuSection: React.FC  = () => {
   const toggleMenu = () => {
     setShowMenu(!showMenu)
   }
-
 
   return (
     <nav className="mainmenu">

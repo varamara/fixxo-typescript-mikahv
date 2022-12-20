@@ -17,17 +17,16 @@ const ShoppingCartItem: React.FC<ShoppingCartItemType>= ({item}) => {
         </div>
         <div className="item-info">
             <div className="item-info-name">{item.product.name}</div>
-            <div className="item-info-quantity">
-                <div className="item-info-quantity-box">
-                    <button className="box-button-left" onClick={() => decrement(item)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button className="box-button-right" onClick={() => increment(item)}>+</button>
-                </div>
+            <div className="item-price">
+                <div>{currencyFormatter(item.product.price * item.quantity)}</div>
             </div>
-        </div>
-        <div className="item-price">
-            <div>{currencyFormatter(item.product.price * item.quantity)}</div>
-            <button onClick={() => remove(item.articleNumber)}><i className="fa-solid fa-trash"></i></button>
+            <div className="line"></div>
+            <div className="item-info-quantity-box">
+                <button className="box-button-left" onClick={() => decrement(item)}>-</button>
+                <span>{item.quantity}</span>
+                <button className="box-button-right" onClick={() => increment(item)}>+</button>
+                <button onClick={() => remove(item.articleNumber)}><i className="trash fa-solid fa-trash"></i></button>
+            </div>
         </div>
     </div>
   )

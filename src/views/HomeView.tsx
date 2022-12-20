@@ -16,14 +16,12 @@ const HomeView: React.FC = () => {
   document.title = 'Fixxo.'
   const {featuredProducts, getFeaturedProducts, dealsProducts_1, getDealsProducts_1, dealsProducts_2, getDealsProducts_2} = useProductContext() as ProductContextType
 
- 
   useEffect(() => {
     getFeaturedProducts(8)
     getDealsProducts_1(4)
     getDealsProducts_2(4)
   }, [])
   
-
   return (
     <>
     <header>
@@ -42,8 +40,3 @@ const HomeView: React.FC = () => {
 }
 
 export default HomeView
-
-// Det kan mycket väl vara så att du inte anropar produkterna i ex dealssection och gridsection som du ska. 
-// Nu anropar du product från AllProducts men har angett dealsProduct och featuredProducts här i HomeView, 
-// Skillnade är att product anropar articlenumber medan deals och featured anropar ett visst ospecifierat antal.
-// Kanske är ett problem eller inte. Fixa till senare om det behövs.. .

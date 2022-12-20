@@ -18,8 +18,6 @@ const itemDetailsSection: React.FC<ProductDetailsType>  = ({title, item}) => {
         </div>
     </div>
   </section>
-
-
   )
 }
 

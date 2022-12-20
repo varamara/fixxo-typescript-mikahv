@@ -21,7 +21,6 @@ export interface ProductContextType {
 export const ProductContext = createContext<ProductContextType | null>(null)
 export const useProductContext = () => { return useContext(ProductContext)}
   
-
     const ProductProvider: React.FC<ProductProviderType> = ({children}) => {
     const baseUrl:string = 'http://localhost:5000/api/products'
     const EMPTY_PRODUCT: ProductItem = { tag: '', description: '', articleNumber: '', name: '', category: '', price: 0, imageName: '' }
@@ -31,21 +30,20 @@ export const useProductContext = () => { return useContext(ProductContext)}
     const [featuredProducts, setFeaturedProducts] = useState<ProductItem[]>([])
     const [dealsProducts_1, setDealsProducts_1] = useState<ProductItem[]>([])
     const [dealsProducts_2, setDealsProducts_2] = useState<ProductItem[]>([])
-    
 
-// Hämtar ett specifikt artikelnummer
+// Gets one product with specific articlenumber
     const getProduct = async (articleNumber?: string) => {
         if (articleNumber !== undefined) {
             const res = await fetch(`${baseUrl}/products/${articleNumber}`)
             setProduct(await res.json())
         }
     }
-// Hämtar alla produkter
+// Gets all
     const getAllProducts = async () => {
         const res = await fetch(baseUrl)
         setAllProducts(await res.json())
     }
-// Featured
+// Gets deatured
     const getFeaturedProducts = async (take: number = 0) => {
         let url = `${baseUrl}/featuredProducts`
 
@@ -55,7 +53,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
         const res = await fetch(url)
         setFeaturedProducts(await res.json())
     }
-// Deals
+// Gets deals
     const getDealsProducts_1 = async (take: number = 0) => {
         let url = `${baseUrl}/dealsProducts_1`
 
@@ -77,7 +75,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
 
     return <ProductContext.Provider value={{product, allProducts, featuredProducts, dealsProducts_1, dealsProducts_2, getProduct, getAllProducts, getFeaturedProducts, getDealsProducts_1, getDealsProducts_2 }}>
         {children}
-    </ProductContext.Provider>
+        </ProductContext.Provider>
 
 }
 

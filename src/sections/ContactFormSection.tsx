@@ -3,9 +3,6 @@ import AlertNotification from '../components/AlertNotification'
 import { validateEmail, validateText } from '../utilities/validation'
 // import { submitData, validate } from '../assets/scripts/submit_and_validation'
 
-  //   if(await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json, )) {
-
-
 interface FormDataType {
   name: string
   email: string
@@ -38,7 +35,6 @@ const ContactForm: React.FC  = () => {
     const  {id, value} = e.target
     setFormData({...formData, [id]: value})
 
-
     if (id === 'comments')
       setErrors({...errors, [id]: validateText(id, value, 5)})
   }
@@ -48,12 +44,8 @@ const ContactForm: React.FC  = () => {
     setSubmitted(false)
     setFailedSubmit(false)
 
-
-// Om fälten inte är tomma betyder följande !=='' så händer detta osv
     if (formData.name !== '' && formData.email !== '' && formData.comments !== '')
       if (errors.name === '' && errors.email === '' && errors.comments === '') {
-
-        // Denna url kommer också vara connected med din egen api
 
         const res = await fetch('https://win22-webapi.azurewebsites.net/api/contactform', {
           method: 'post',
@@ -79,7 +71,6 @@ const ContactForm: React.FC  = () => {
         
         {submitted ? (<AlertNotification alertType="success" title="Thank you for your comment." text="We will be in contact with you as soon as possible." />) : (<></>)}
         {failedSubmit ? (<AlertNotification alertType="danger" title="Something went wrong." text="We couldn't submit your comment, try again later." />) : (<></>)}
-        
         
         <h2>Come in Contact with Us</h2>
         <form onSubmit={handleSubmit} noValidate>

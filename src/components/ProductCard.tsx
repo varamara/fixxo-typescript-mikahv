@@ -17,7 +17,7 @@ const ProductCard: React.FC<ProductCardType> = ({item}) => {
             <div className="card-img">
                 <img src={item.imageName} alt={item.name} />
                 <div className="card-menu">
-                    {/* Denna borde egentligen visa en separat offCanvas från den som ShoppingBag visar */}
+                    {/* Denna borde egentligen visa en separat offCanvas från den som finns till shoppingbag */}
                     <button onClick={() => 
                         increment({articleNumber: item.articleNumber, product: item, quantity: 1})} 
                         className="menu-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
