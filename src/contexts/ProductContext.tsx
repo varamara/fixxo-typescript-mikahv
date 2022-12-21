@@ -34,7 +34,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
 // Gets one product with specific articlenumber
     const getProduct = async (articleNumber?: string) => {
         if (articleNumber !== undefined) {
-            const res = await fetch(`${baseUrl}/products/${articleNumber}`)
+            const res = await fetch(`${baseUrl}/product/details/${articleNumber}`)
             setProduct(await res.json())
         }
     }
@@ -43,7 +43,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
         const res = await fetch(baseUrl)
         setAllProducts(await res.json())
     }
-// Gets deatured
+// Gets featured
     const getFeaturedProducts = async (take: number = 0) => {
         let url = `${baseUrl}/featuredProducts`
 
